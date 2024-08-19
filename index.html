@@ -6,6 +6,9 @@
     <title>REL :)</title>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <link rel="icon" type="image/jpg" href="asset/R-removebg-preview.png" />
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -13,8 +16,8 @@
 
 <div id="header">
     <div class="container">
-        <nav>
-            <img src="asset/R-removebg-preview.png" alt="Logo" class="logo">
+        <nav class="navbar">
+            <img src="/asset/R-removebg-preview.png" alt="Logo" class="logo">
             <ul>
                 <li><a href="#header">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -22,9 +25,6 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <section class="banner">
-            
-        </section>
         <div class="header-text">
             <p>REL</p>
             <h1>Heyyy, welcome peeps!<br>They call me <span class="auto-type"></span></h1>
@@ -51,7 +51,7 @@
                 </ul>
             </div>
             <div class="about-col-3">
-                <img src="asset/WhatsApp Image 2024-08-18 at 19.56.29_7d3072e0.jpg" alt="Me">
+                <img src="/asset/WhatsApp Image 2024-08-18 at 19.56.29_7d3072e0.jpg" alt="Me">
             </div>
         </div>
     </div>
@@ -62,17 +62,30 @@
     <div class="container">
         <div class="experience">
             <h1><u>Experiences</u></h1>
-            <div class="slider-wrapper">
+            <div class="row">
+            
+            <div class="col-1">
+                <p>
+                    <li>Turkey Bilateral <span class="rank">Exchange</span></li>
+                    <p>A part of Labschool Cirendeu's Bilateral Exchange with Bregeal</p>
+                    <li>Kirana Megatara <span class="rank">Internship</span></li>
+                    <p>Worked as an intern for international-scale industrial company</p>
+                    <li>Highschool Concert <span class="rank">Secretary</span></li>
+                    <p>One of the executives, planning and executing a large high-school concert</p>
+                </p>
+            </div>
+            <div class="col-2 slider-wrapper">
                 <div class="slider">
-                    <img id="slide-1" src="asset/turkey2.jpg" alt="Turkey Bilateral Exchange">
-                    <img id="slide-2" src="asset/km2.jpg" alt="Internship at Kirana Megatara">
-                    <img id="slide-3" src="asset/rdv1.jpg" alt="Secretary at Rendezvous 2022">
+                    <img id="slide-1" src="/asset/turkey2.jpg" alt="Turkey Bilateral Exchange">
+                    <img id="slide-2" src="/asset/km2.jpg" alt="Internship at Kirana Megatara">
+                    <img id="slide-3" src="/asset/rdv1.jpg" alt="Secretary at Rendezvous 2022">
                 </div>
                 <div class="slider-nav">
                     <a href="#slide-1"></a>
                     <a href="#slide-2"></a>
                     <a href="#slide-3"></a>
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -81,7 +94,7 @@
 <!--Contacts-->
 <div id="contact">
     <div class="container about-box">
-            <h1>Contact Me!</h1>
+            <h1><u>Contact Me!</u></h1>
             <div class="social-icons">
                 <a href="https://www.instagram.com/farrelardyaa/"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/in/farrelardya/"><i class="fab fa-linkedin"></i></a>
@@ -96,15 +109,28 @@
     </p>
 </footer>
 
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
+    let links = document.querySelectorAll('nav ul li a'); 
+
+    links.forEach(target => {
+    target.onclick = function(e) {
+        e.preventDefault();
+        let href = target.getAttribute('href');
+        let offsetTop = document.querySelector(href).offsetTop;
+
+        scroll({
+            top: offsetTop,
+            behavior: "smooth"
+        });
+    };
+    });
+
     var typed = new Typed(".auto-type",{
-        strings: ["farrel.", "rel.", "lele.", "arel."],
-        typeSpeed: 150,
-        backSpeed: 150,
-        loop: true,
+    strings: ["farrel.", "rel.", "lele.", "arel."],
+    typeSpeed: 150,
+    backSpeed: 150,
+    loop: true,
     });
 </script>
-
 </body>
 </html>
